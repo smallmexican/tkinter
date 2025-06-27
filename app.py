@@ -17,6 +17,7 @@ class Calculator:
         self.display_var.set("0")
         
         self.create_widgets()
+        self.bind_keyboard_events()
     
     def create_widgets(self):
         # Display frame
@@ -34,6 +35,9 @@ class Calculator:
             padx=10
         )
         display.pack(expand=True, fill="both")
+        
+        # Make display clickable to ensure keyboard focus
+        display.bind("<Button-1>", lambda event: self.root.focus_set())
         
         # Button frame
         button_frame = tk.Frame(self.root)
@@ -171,6 +175,48 @@ class Calculator:
                 self.display_var.set(self.current)
             except ValueError:
                 messagebox.showerror("Error", "Invalid input!")
+    
+    def bind_keyboard_events(self):
+        # Focus on the root window to capture key events
+        self.root.focus_set()
+        
+        # Bind number keys
+        for num in range(10):
+            self.root.bind(str(num), lambda event, n=str(num): self.button_click(n))
+        
+        # Bind decimal point
+        self.root.bind('.', lambda event: self.button_click('.'))
+        
+        # Bind operation keys
+        self.root.bind('+', lambda event: self.button_click('+'))
+        self.root.bind('-', lambda event: self.button_click('-'))
+        self.root.bind('*', lambda event: self.button_click('×'))
+        self.root.bind('/', lambda event: self.button_click('÷'))
+        
+        # Bind equals and enter
+        self.root.bind('=', lambda event: self.button_click('='))
+        self.root.bind('<Return>', lambda event: self.button_click('='))
+        
+        # Bind clear keys
+        self.root.bind('c', lambda event: self.button_click('C'))
+        self.root.bind('C', lambda event: self.button_click('C'))
+        self.root.bind('<Delete>', lambda event: self.button_click('C'))
+        self.root.bind('<Escape>', lambda event: self.button_click('C'))
+        
+        # Bind backspace for clearing
+        self.root.bind('<BackSpace>', lambda event: self.backspace())
+        
+        # Bind percentage
+        self.root.bind('%', lambda event: self.button_click('%'))
+    
+    def backspace(self):
+        """Handle backspace key to delete last character"""
+        if self.current and len(self.current) > 1:
+            self.current = self.current[:-1]
+            self.display_var.set(self.current)
+        elif self.current:
+            self.current = "0"
+            self.display_var.set("0")
 
 def main():
     root = tk.Tk()
