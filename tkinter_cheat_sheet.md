@@ -3,17 +3,19 @@
 A comprehensive reference guide for Python's Tkinter GUI library.
 
 ## 📋 Table of Contents
-- [Basic Setup](#basic-setup)
-- [Main Widgets](#main-widgets)
-- [Layout Managers](#layout-managers)
-- [Widget Properties](#widget-properties)
-- [Events and Bindings](#events-and-bindings)
-- [Dialogs and Messages](#dialogs-and-messages)
-- [Styling and Colors](#styling-and-colors)
-- [Variables and Data Binding](#variables-and-data-binding)
-- [Complete Functions Reference](#complete-functions-reference)
-- [Common Patterns](#common-patterns)
-- [Quick Reference Tables](#quick-reference-tables)
+- [🛠️ Basic Setup](#️-basic-setup)
+- [🎨 Main Widgets](#-main-widgets)
+- [📐 Layout Managers](#-layout-managers)
+- [⚙️ Widget Properties](#️-widget-properties)
+- [🖱️ Events and Bindings](#️-events-and-bindings)
+- [💬 Dialogs and Messages](#-dialogs-and-messages)
+- [🎨 Styling and Colors](#-styling-and-colors)
+- [🔗 Variables and Data Binding](#-variables-and-data-binding)
+- [📚 Complete Functions Reference](#-complete-functions-reference)
+- [🔧 Common Patterns](#-common-patterns)
+- [📊 Quick Reference Tables](#-quick-reference-tables)
+- [💡 Best Practices](#-best-practices)
+- [🆘 Common Issues and Solutions](#-common-issues-and-solutions)
 
 ---
 
